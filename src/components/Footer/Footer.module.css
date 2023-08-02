@@ -7,3 +7,12 @@
     background-color: #b0c4de;
     padding: 2rem;
 }
+
+.footer p {
+    margin-bottom: 1rem;
+}
+
+.footer p a {
+    font-weight: bold;
+    text-decoration: underline;
+}
