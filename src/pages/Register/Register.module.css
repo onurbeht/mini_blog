@@ -4,5 +4,9 @@
 }
 
 .register p {
-    margin-bottom: .8rem;
+    margin: 1rem;
+}
+
+.login {
+    text-decoration: underline;
 }

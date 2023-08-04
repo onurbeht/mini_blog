@@ -2,6 +2,8 @@ import { useAuthentication } from '../../hooks/useAuthentication'
 
 import { useState, useEffect } from 'react'
 
+import { NavLink } from 'react-router-dom'
+
 import styles from './Login.module.css'
 
 const Login = () => {
@@ -23,7 +25,6 @@ const Login = () => {
     }
 
     const res = await login(user)
-
   }
 
   useEffect(() => {
@@ -54,6 +55,9 @@ const Login = () => {
 
         {error && <p className='error'>{error}</p>}
       </form>
+
+      <p>Ainda não tem uma conta?</p>
+      <NavLink to='/register' className={styles.register}>Criar conta</NavLink>
     </div>
   )
 }

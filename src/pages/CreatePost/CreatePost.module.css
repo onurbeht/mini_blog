@@ -1,0 +1,15 @@
+.create_post {
+    text-align: center;
+}
+
+.create_post h1 {
+    margin-top: 1rem;
+}
+
+.create_post p {
+    margin: 1rem;
+}
+
+.create_post button {
+    margin-top: .8rem;
+}

@@ -17,7 +17,7 @@ import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
 
 //context
-import { AuthProvider } from './context/authContext'
+import { AuthProvider } from './context/AuthContext'
 
 //style
 import './App.css'

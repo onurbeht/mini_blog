@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"
 
 import { useAuthentication } from "../../hooks/useAuthentication"
 
-import { useAuthValue } from "../../context/authContext"
+import { useAuthValue } from "../../context/AuthContext"
 
 import styles from './Navbar.module.css'
 
@@ -42,7 +42,7 @@ const Navbar = () => {
                 )}
                 <li><NavLink to='/about' className={({ isActive }) => isActive ? styles.active : ''}>Sobre</NavLink></li>
 
-                {user && (<li><button onClick={logout}>Logout</button></li>)}
+                {user && (<li><button onClick={logout}>Sair</button></li>)}
             </ul>
         </nav>
     )
