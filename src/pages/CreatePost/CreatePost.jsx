@@ -1,44 +1,60 @@
-import styles from './CreatePost.module.css'
+import styles from './CreatePost.module.css';
 
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import { useAuthValue } from '../../context/AuthContext'
+import { useAuthValue } from '../../context/AuthContext';
 
-import { useInsertDocument } from '../../hooks/useInsertDocument'
+import { useInsertDocument } from '../../hooks/useInsertDocument';
 
 const CreatePost = () => {
 
-  const [title, setTitle] = useState('')
-  const [image, setImage] = useState('')
-  const [body, setBody] = useState('')
-  const [tags, setTags] = useState([])
-  const [formError, setFormError] = useState('')
+  const [title, setTitle] = useState('');
+  const [image, setImage] = useState('');
+  const [body, setBody] = useState('');
+  const [tags, setTags] = useState([]);
+  const [formError, setFormError] = useState('');
 
-  const {insertDocument, response} = useInsertDocument('posts')
-  const {user} = useAuthValue()
+  const { insertDocument, response } = useInsertDocument('posts');
+  const { user } = useAuthValue();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    setFormError('')
+    e.preventDefault();
+    setFormError('');
 
     //validate URL Image
+    try {
+      new URL(image)
+    } catch (error) {
+      setFormError('A imagem precisa ser uma URL')
+      return
+    }
 
     //Criar array de tags
+    const tagsArray = tags.split(',').map((tag) => tag.trim().toLowerCase())
 
-    //checar todos os valores 
+    //checar todos os valores
+    if(!title || !image || !body || !tags) {
+      setFormError('Por favor, preencha todos os campos!')
+      return
+    }
 
-    insertDocument({
-      title,
-      image, 
-      body, 
-      tags,
-      uid: user.uid,
-      createdBy: user.displayName
-    })
-
+    if (formError) {
+      return
+    } else {
+      insertDocument({
+        title,
+        image,
+        body,
+        tagsArray,
+        uid: user.uid,
+        createdBy: user.displayName
+      })  
+    }
 
     //redirect to home page
+    navigate('/')
   }
 
   return (
@@ -53,6 +69,8 @@ const CreatePost = () => {
             type='text'
             name='title'
             placeholder='Pense num bom titulo...'
+            required
+            maxLength={100}
             onChange={(e) => { setTitle(e.target.value) }}
             value={title} />
         </label>
@@ -60,7 +78,7 @@ const CreatePost = () => {
         <label>
           <span>URL da Imagem:</span>
           <input
-            type='text'
+            type='url'
             name='image'
             placeholder='Insira uma imagem que representa o seu post'
             required
@@ -70,7 +88,7 @@ const CreatePost = () => {
 
         <label>
           <span>Conteudo:</span>
-          <textarea 
+          <textarea
             type='text'
             name='body'
             placeholder='Insira o conteudo do post'
@@ -87,18 +105,19 @@ const CreatePost = () => {
             name='tags'
             placeholder='Insira as tags separadas por vírgula'
             required
+            maxLength={100}
             onChange={(e) => { setTags(e.target.value) }}
             value={tags} />
         </label>
 
-        {!response.loading && <button className='btn'>Cadastrar</button>}
+        {!response.loading && <button className='btn'>Criar post!</button>}
         {response.loading && <button className='btn' disabled>Aguarde...</button>}
 
-        {response.error && <p className='error'>{response.error}</p>}
-        
+        {response.error || formError ? (<p className='error'>{response.error || formError}</p>) : ''}
+    
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default CreatePost
