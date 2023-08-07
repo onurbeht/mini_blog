@@ -1,0 +1,36 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home h1 {
+    margin: 2rem 0 1rem 0 ;
+}
+
+.search_form {
+    max-width: 100%;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.search_form input {
+    margin-right: .5rem;
+    width: 50%;
+}
+
+.no_posts {
+    text-align: center;
+}
+
+.no_posts p {
+    margin: 1.5rem;
+}
+
+.no_posts a {
+    padding: .8rem 1.2rem;
+}
