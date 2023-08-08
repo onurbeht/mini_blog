@@ -1,0 +1,12 @@
+.post_data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+.post_data img {
+    width: 50%;
+}
