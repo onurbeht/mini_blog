@@ -12,12 +12,17 @@ import PostData from '../../components/PostData/PostData'
 const Home = () => {
 
   const [query, setQuery] = useState('')
-  //const [posts] = useState([])
 
   const {documents: posts, loading, error} = useFetchDocuments("posts")
 
+  const navigate = useNavigate()
+
   const handleSubmit = (e) => {
     e.preventDefault
+
+    if(query) {
+      return navigate(`/search?q=${query}`)
+    }
   }
 
   return (
@@ -27,7 +32,7 @@ const Home = () => {
         <input type="text" placeholder='Ou busque por tags' onChange={(e) => setQuery(e.target.value)}/>
         <button className='btn btn_dark'>Pesquisar</button>
       </form>
-      <div>
+      <>
         {loading && <p>Carregando...</p>}
         {posts && posts.map((post) => (
           <PostData post={post} key={post.id}/>
@@ -38,7 +43,7 @@ const Home = () => {
             <Link to='/posts/create' className='btn'>Criar primeiro post</Link>
           </div>
         )}
-      </div>
+      </>
     </div>
   )
 }
