@@ -1,0 +1,55 @@
+.no_posts {
+    text-align: center;
+}
+
+.no_posts p {
+    margin: 1.5rem;
+}
+
+.no_posts a {
+    padding: .8rem 1.2rem;
+}
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.dashboard h2 {
+    font-size: 2.2rem;
+    margin-bottom: .5rem;
+}
+
+.dashboard p {
+    margin-bottom: 1rem;
+}
+
+.header, .row {
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+    padding: .8rem;
+}
+
+.header {
+    font-weight: bold;
+    border-bottom: 2px solid #ccc;
+}
+
+.row {
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.row p {
+    color: black;
+}
+
+.row button, .row a {
+    margin: 0 .5rem;
+    font-size: .8rem;
+}
