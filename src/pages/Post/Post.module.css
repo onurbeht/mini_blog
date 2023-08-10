@@ -1,0 +1,62 @@
+
+.image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.image img {
+    max-width: 60vw;
+    width: 50vw;
+    z-index: -1;
+}
+
+.image h2 {
+    position: absolute;
+    bottom: 0px;
+    color: #b0c4de;
+    background: linear-gradient(to top, black, rgba(255, 255, 255, 0));
+    width: 50vw;
+    max-width: 60vw;
+    transition: .5s;
+    padding: .5rem;
+    opacity: 0;
+}
+
+.image h2:hover {
+    opacity: 1;
+}
+
+.info {
+    margin: 0 auto;
+    border: 1px solid black;
+    width: 50vw;
+    max-width: 60vw;
+    padding: 2rem;
+}
+
+.body {
+    display: inline-block;
+    margin-bottom: .8rem;
+}
+
+.tags {
+    display: flex;
+}
+
+.tags span {
+    font-weight: bold;
+}
+
+.tags p {
+    margin-right: .5rem;
+    margin-bottom: 1rem;
+}
+
+.button {
+    display: block;
+    margin-bottom: 1rem;
+}
+

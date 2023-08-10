@@ -6,7 +6,7 @@ const PostData = ({ post }) => {
   return (
     <div className={styles.post_detail}>
       <div className={styles.post_img}>
-        <img src={post.image} alt={post.title} />
+        <img src={post.image} alt={post.title} loading='lazy'/>
         <h2>{post.title}</h2>
       </div>
         <p className={styles.createdBy}>{post.createdBy}</p>
