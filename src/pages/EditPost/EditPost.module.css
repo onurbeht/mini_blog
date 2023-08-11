@@ -1,0 +1,26 @@
+.edit_post {
+    text-align: center;
+}
+
+.edit_post h1 {
+    margin-top: 1rem;
+}
+
+.edit_post p {
+    margin: 1rem;
+}
+
+.edit_post button {
+    margin-top: .8rem;
+}
+
+.preview_title {
+    margin-bottom: .2rem;
+    color: #000;
+    font-weight: bold;
+}
+
+.preview_image {
+    max-width: 100%;
+    margin-bottom: 1rem;
+}
