@@ -31,7 +31,9 @@
 
 .info {
     margin: 0 auto;
-    border: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
     width: 50vw;
     max-width: 60vw;
     padding: 2rem;
